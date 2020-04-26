@@ -39,6 +39,22 @@ public class Main {
 
     }
 
+    @SubscribeEvent
+    public static void createBlockItems(final RegistryEvent.Register<Item> event)
+    {
+
+        final IForgeRegistry<Item> registry = event.getRegistry();
+
+        BlockList.BLOCKS.getEntries().stream().map(RegistryObject::get).forEach(block -> {
+
+            final Item.Properties properties = new Item.Properties().group(ItemGroup.BUILDING_BLOCKS);
+            final BlockItem blockItem = new BlockItem(block, properties);
+            blockItem.setRegistryName(block.getRegistryName());
+            registry.register(BlockItem);
+        });
+
+    }
+
     private void Setup(final FMLCommonSetupEvent event)
     {
     }
