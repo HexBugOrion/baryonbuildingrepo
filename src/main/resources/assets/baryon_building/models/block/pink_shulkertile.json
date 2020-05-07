@@ -1,0 +1,6 @@
+{
+    "parent": "block/cube_all",
+    "textures": {
+        "all": "baryon_building:blocks/pink_shulkertile"
+    }
+}
